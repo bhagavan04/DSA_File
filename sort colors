@@ -1,0 +1,43 @@
+ 
+leetcode ques no 75. sort colors (optimal approach)
+Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+
+We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
+
+easy way to approach:
+in this question colors of red,white,blue as 0,1,2 as numbers respectively;
+initalize red ->0 and white ->0 and blue ->n-1;
+using while loop check white never goes above the blue;
+if its true then enter into if condition check the number is equal to 0;
+if gets true then swap ele with red,whiteand increment red,white;
+if gets false enter into anthor if condition check white =1;
+then gets true increment white;
+if get false swap ele with white,blue and decrement blue;
+
+
+here is the pseudo code for this ques:
+ void sortColors(vector<int>& nums) {
+         
+        int n=nums.size();
+        int red=0;int white=0; int blue=n-1;
+        while(white<=blue){
+            if(nums[white]==0){
+                swap(nums[white],nums[red]);
+                red++;
+                white++;
+
+            }
+            else if(nums[white]==1){
+                white++;
+
+            }
+            else{
+                swap(nums[white],nums[blue]);
+                blue--;
+            }
+        }
+
+time complexity:O(N);
+its traversing whole array once;
+space complexity:O(1)
+there is no special memory i.e no required of any array to store elements for this problem.
